@@ -1,3 +1,6 @@
+#creates constant variables for ingredients
+CONST_STR_PROJECT = "cake"
+CONST_INT_DIFFICULTY = 3
 CONST_STR_MARGARINE = "margarine"
 CONST_STR_EGGS = "eggs"
 CONST_STR_APPLES = "apples"
@@ -6,8 +9,6 @@ CONST_STR_FLOUR = "flour"
 CONST_STR_SUGAR = "sugar"
 CONST_STR_COCOA_POWDER = "cocoa powder"
 CONST_STR_BAKING_POWDER = "baking powder"
-difficulty = 3
-project = "cake"
 
 flour = 175 
 butter = 175 
@@ -16,7 +17,7 @@ eggs = 2
 cocoa_powder = 1 
 baking_powder = 0.5
 
-
+#creates dictionary for our ingredients
 ingredients = {CONST_STR_FLOUR : flour, 
                CONST_STR_BUTTER : butter, 
                CONST_STR_SUGAR: sugar, 
@@ -24,18 +25,35 @@ ingredients = {CONST_STR_FLOUR : flour,
                CONST_STR_COCOA_POWDER: cocoa_powder, 
                CONST_STR_BAKING_POWDER: baking_powder}
 
-print(CONST_STR_APPLES in ingredients) 
-print(CONST_STR_BUTTER in ingredients)
-print((CONST_STR_EGGS in ingredients) or (CONST_STR_MARGARINE in ingredients))
-print((CONST_STR_EGGS in ingredients) and (CONST_STR_MARGARINE in ingredients))
+#creates constants for print messages
+CONST_STR_INGREDIENTS_CONTAIN = "Ingredients contain"
+CONST_STR_INGREDIENTS_DOES_NOT_CONTAIN = "Ingredients doesn't contain"
+CONST_STR_AND = "and"
+CONST_STR_OR = "or"
+CONST_STR_EITHER = "either"
+CONST_STR_BOTH = "both"
+
+#creates tuple for "contains" and "doesn't contain" messages
+printMessage = (lambda: CONST_STR_INGREDIENTS_DOES_NOT_CONTAIN, 
+       lambda: CONST_STR_INGREDIENTS_CONTAIN)
+print(printMessage[CONST_STR_APPLES in ingredients](), CONST_STR_APPLES) 
+print(printMessage[CONST_STR_BUTTER in ingredients](), CONST_STR_BUTTER) 
+print(printMessage[(CONST_STR_EGGS in ingredients
+      or CONST_STR_MARGARINE in ingredients)](), CONST_STR_EITHER, CONST_STR_EGGS, CONST_STR_OR, CONST_STR_MARGARINE)
+print(printMessage[(CONST_STR_EGGS in ingredients
+      and CONST_STR_MARGARINE in ingredients)](), CONST_STR_BOTH, CONST_STR_EGGS, CONST_STR_AND, CONST_STR_MARGARINE)
 
 sep = "-"
 tableSpoon = "ts"
 gram = "g"
-for x,y in ingredients.items():
-    if ((x == CONST_STR_COCOA_POWDER) or (x == CONST_STR_BAKING_POWDER)):
-        print(x, sep, y, tableSpoon)
-    elif(x == CONST_STR_EGGS):
-        print(x, sep, y)
+#loops through dictionary and prints the ingridients
+for key, value in ingredients.items():
+    #changes the first letter of ingredients to uppercase
+    key = key[0].upper() + key[1:]
+    if ((key.casefold() == CONST_STR_COCOA_POWDER.casefold()) 
+        or (key.casefold() == CONST_STR_BAKING_POWDER.casefold())):
+        print(key, sep, value, tableSpoon)
+    elif(key.casefold() == CONST_STR_EGGS.casefold()):
+        print(key, sep, value)
     else:
-        print(x, sep, y, gram)
+        print(key, sep, value, gram)
