@@ -48,12 +48,10 @@ tableSpoon = "ts"
 gram = "g"
 #loops through dictionary and prints the ingridients
 for key, value in ingredients.items():
-    #changes the first letter of ingredients to uppercase
-    key = key[0].upper() + key[1:]
-    if ((key.casefold() == CONST_STR_COCOA_POWDER.casefold()) 
-        or (key.casefold() == CONST_STR_BAKING_POWDER.casefold())):
-        print(key, sep, value, tableSpoon)
-    elif(key.casefold() == CONST_STR_EGGS.casefold()):
-        print(key, sep, value)
+    if ((key == CONST_STR_COCOA_POWDER) 
+        or (key == CONST_STR_BAKING_POWDER)):
+        print(key.capitalize(), sep, value, tableSpoon)
+    elif(key == CONST_STR_EGGS):
+        print(key.capitalize(), sep, value)
     else:
-        print(key, sep, value, gram)
+        print(key.capitalize(), sep, value, gram)
