@@ -27,7 +27,7 @@ print(union_ab)
 new_set = union_ab | intersection_ab 
 print(new_set)
 print("Chocolate" in new_set)
-new_set.remove("Oreo")
+new_set.discard("Oreo")
 print(new_set)
 
 #Tuples:
