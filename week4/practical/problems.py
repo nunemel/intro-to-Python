@@ -67,7 +67,6 @@ for i in range(10):
             #clears the previous output
             clear_output(wait = True)
             guess = int(input(inputMessage))
-            #checks if the input is odd
             if (guess == correct_num):
                 print("That was a good guess!")
             else: 
