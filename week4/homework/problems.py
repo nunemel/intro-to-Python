@@ -1,59 +1,81 @@
-#HOMEWORK
-import sys, argparse
+from IPython.display import clear_output
 
-#Lists:
-a = [1, 4, 5, 7, 8, -2, 0, -1]
-print(a[3], a[5])
-a_sorted = sorted(a.copy(), reverse=True)
-print(a_sorted[1:4], a_sorted[2:7])
-a_sorted.pop(3)
-a_sorted.pop(2)
-print(a_sorted)
-b = ["grapes", "Potatoes", "tomatoes","Orange", "Lemon", "Broccoli", "Carrot", "Sausages"]
-b_sorted = sorted(b.copy())
-c = a[1:4] + b[4:7]
-print(c)
+errorMessage = "Error: input must be an integer number."
 
-#Sets:
-a1 = ["Cookies", "Chocolate", 8, True, -3, -5, "Chocolate", 8, False, 8]
-b1 = [8, True, 10, 14, "Chocolate", "Milk", "Jelly", True, False, True]
-set_a = set(a1)
-set_b = set(b1)
-union_ab = set_a.union(set_b)
-intersection_ab = set_a.intersection(set_b)
-union_ab.add("Kit-Kat") 
-union_ab.add("Oreo") 
-print(union_ab)
-new_set = union_ab | intersection_ab 
-print(new_set)
-print("Chocolate" in new_set)
-new_set.remove("Oreo")
-print(new_set)
+def inputF(message):
+    return input(message)  
 
-#Tuples:
-t1 = (1, True, "a", -2, "Anna")
-list1 = list(t1)
-list1.pop(1)
-t1 = tuple(list1)
-print(t1)
-t2 = (1, 2, 3, 4, 5)
-listT = list(t2)
-t3 = (list1[0], list1[1], listT[0], listT[1], listT[2])
-print(t3)
-print(t3[2])
-t4 = [(1,3,5), (8,9), ("Anna", "Bob", "Alice")]
-print(t4[0][1])
 
-#Dictionaries:
-market = {"dairy": ["yogurt", "cheese"],"fruits": 
-    ["banana", "apple", "orange", "lemon", "apple", "banana", "banana"]}
-print(market)
-candies = ["mars", "kinder", "twix"]
-market['candies'] = candies
-print(market)
+#Conditionals
+#1    
+onePair = 100
+inputMessage = "Please eneter how many pairs of shoes do you want to buy: "
 
-market.update({'fruits': sorted(set(market['fruits']))})
-print(market)
- 
+while True:
+    try:
+        n_shoes = int(inputF(inputMessage))
+        if onePair * n_shoes > 1000:
+            print("You get a discount.")
+        else:
+            print("You don't get a discount.")  
+        break      
+    except ValueError:
+        print(errorMessage)
+        clear_output(wait = True)
+        continue
+
+#2
+import statistics
+
+d = {"name": "Armen", "age" : 15, "grades" : [10, 8, 8, 4, 6, 7]} 
+if statistics.mean(d["grades"]) > 7:
+    print("Good job")
+else:    
+    print("You need to work more.")  
+
+#Loops and loop control statements
+#3
+for i in range(11):
+    if (i % 2 == 0):
+        continue
+    print("odd =", i)
+
+#4
+list1 = [1, 3, 5, 7, 9, 11, 13, 15]
+list2 = [4, 6, 14, 11,8, 16] 
+
+for i in list1:
+    print("i = ", i)  
+    if i in list2:        
+        break     
+
+#5
+from IPython.display import clear_output
+menu = ['ice cream', 'chocolate', 'apple crisp', 'cookies']    
+inputMessage = "Please enter any string: "   
+
+while True:
+    for i in menu:
+        if inputF(inputMessage) in menu:
+            print("Your desert will arrive in 10 minutes.")
+            break
+        else:
+            print("Please choose another desert.")
+            clear_output(wait = True)     
+            continue
+    break
+          
+#List comprehension
+#6
+list2 = [1, 2, 3, 4, 5,  6, 7 , 222, 444, 5, 777, 888]
+list2 = [x for x in list2 if x >= 2 and x <= 5]
+print("list2 = ", list2)
+
+#7
+list4 = [[10, 20, 40], [40, 50, 60], [70, 80, 90]]
+list5 = [[100 if j == len(list4[i]) - 1 else list4[i][j] for j in range(len(list4[i]))] for i in range(len(list4))] 
+print("list5 = ", list5)
+
+
 
 

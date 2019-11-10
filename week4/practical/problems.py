@@ -1,13 +1,27 @@
 #1
-n1 = input("Please enter any integer value: ")
-n2 = input("Please enter any integer value: ")
+from IPython.display import clear_output
 
-max = 0
-if (n1 > n2):
-    max = n1
-else:    
-    max = n2
-print("The number %s is the greatest." % max)    
+inputMessage = "Please enter any integer value: "
+errorMessage = "Error: input must be an integer number."
+
+def inputF(message):
+    return input(message)   
+
+while True:
+    try:
+        n1 = int(inputF(inputMessage))
+        n2 = int(inputF(inputMessage))
+        max = 0
+        if (n1 > n2):
+            max = n1
+        else:    
+            max = n2
+        print("The number %d is the greatest." % max)    
+        break
+    except ValueError:
+        print(errorMessage)
+        clear_output(wait = True)
+        continue
 
 #2
 a = 12
@@ -55,29 +69,24 @@ for item in list1:
     print (item)    
 
 #9
-from IPython.display import clear_output
-
 correct_num = 5
 inputMessage = "Please guess an integer number: "
-errorMessage = "Input must be an integer number, please enter again:"
+
 #checks if the input is correct if it is correct prints it else clears the previous output and asks to enter the number again
 count = 0
 for i in range(10):
         try:
             #clears the previous output
-            clear_output(wait = True)
-            inputMessage = "Please guess an integer number: "
-            guess = int(input(inputMessage))
+            guess = int(inputF(inputMessage))
             if (guess == correct_num):
                 print("That was a good guess!")
             else: 
                 continue    
             break
         except ValueError:
-            inputMessage = errorMessage
+            print(errorMessage)
             clear_output(wait = True)
             continue
-
 
 #List comprehension
 #10
