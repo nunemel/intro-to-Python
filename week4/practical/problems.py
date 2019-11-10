@@ -66,6 +66,7 @@ for i in range(10):
         try:
             #clears the previous output
             clear_output(wait = True)
+            inputMessage = "Please guess an integer number: "
             guess = int(input(inputMessage))
             if (guess == correct_num):
                 print("That was a good guess!")
