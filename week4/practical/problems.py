@@ -103,4 +103,5 @@ print("myList = ", myList)
 #14
 list1 = ['a', 'abc', 'xyz', 's', 'aba', '1221']
 newList = [x for x in list1 if len(x) >= 2 and x[0] == x[-1]]
+print("count =", len(newList))
 print(newList)
