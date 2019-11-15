@@ -45,6 +45,23 @@ if (age < 16):
 if (not ('*' in password) or not('&' in password)):
     print("Please enter a different password")
 
+#4
+d = {"name": "Armen", "age": 15, "grades": [10, 8,8, 4, 6, 7]}
+
+while True:
+    try:
+        if (not ("weight" in d)):
+            n = int(inputF(inputMessage))
+            d["weight"] = n
+            print(d)
+        else:
+            print(d["weight"])  
+        break
+    except ValueError:
+        print(errorMessage)
+        clear_output(wait = True)
+        continue
+
 #Loops
 #5
 for i in range(101):    

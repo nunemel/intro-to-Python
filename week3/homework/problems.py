@@ -32,13 +32,19 @@ print(new_set)
 
 #Tuples:
 t1 = (1, True, "a", -2, "Anna")
-list1 = list(t1)
-list1.pop(1)
-t1 = tuple(list1)
+#version1
+for i in t1:
+    if (i == True and isinstance(i, bool)):
+        index = i
+        break
+if (index):
+    t1 = t1[:index] + t1[index + 1:]         
 print(t1)
+#version2
+print(tuple(i for i in t1 if not (i == True and isinstance(i, bool))))
+
 t2 = (1, 2, 3, 4, 5)
-listT = list(t2)
-t3 = (list1[0], list1[1], listT[0], listT[1], listT[2])
+t3 = (t1[0], t1[1], t2[0], t2[1], t2[2])
 print(t3)
 print(t3[2])
 t4 = [(1,3,5), (8,9), ("Anna", "Bob", "Alice")]
