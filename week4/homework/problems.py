@@ -55,21 +55,20 @@ menu = ['ice cream', 'chocolate', 'apple crisp', 'cookies']
 inputMessage = "Please enter any string: "   
 
 while True:
-    for i in menu:
-        if inputF(inputMessage) in menu:
-            print("Your desert will arrive in 10 minutes.")
-            break
-        else:
-            print("Please choose another desert.")
-            clear_output(wait = True)     
-            continue
-    break
+    if inputF(inputMessage) in menu:
+        print("Your desert will arrive in 10 minutes.")
+        break
+    else:
+        print("Please choose another desert.")
+        clear_output(wait = True)     
+
           
 #List comprehension
 #6
-list2 = [1, 2, 3, 4, 5,  6, 7 , 222, 444, 5, 777, 888]
-list2 = [x for x in list2 if x >= 2 and x <= 5]
-print("list2 = ", list2)
+list2 = [1, 2, 3, 4, 5,  6, 7 , 222, 444, 15, 777, 888]
+list2 = [x for x in list2 if x >= 5 and x <= 10]
+
+print("list2 = ", list2, ",count = ", len(list2))
 
 #7
 list4 = [[10, 20, 40], [40, 50, 60], [70, 80, 90]]
