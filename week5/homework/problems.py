@@ -5,11 +5,11 @@ def errorRaiseFunc(type):
 def funcMax(*args):
     if len(args) == 0 or len([i for i in args if isinstance(i, int)]) < 1:
         return "no numbers are given"
-    max = 0
+    maximum = 0
     for i in args:
-        if i > max:    
-            max = i
-        return max
+        if i > maximum:    
+            maximum = i
+        return maximum
 
 print(funcMax(1, 334, 45, 778, 3))      
 
@@ -65,7 +65,7 @@ print(funcDef())
 #5
 def my_range(n):
     if (not isinstance(n, int)):
-        errorRaiseFunc(int)
+        errorRaiseFunc('int')
     return ("there are no values left" if i == n + 1 else i for i in range(n + 2))  
 
 for i in my_range(5):

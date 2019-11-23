@@ -6,7 +6,7 @@ def errorRaiseFunc(type):
 def funcMean(int1, int2, int3):
     """ Counts the mean of three integer parameters. """
     if not isinstance(int1, int) or not isinstance(int2, int) or not isinstance(int3, int):
-        errorRaiseFunc(int)
+        errorRaiseFunc('int')
 
     return (int1 + int2 + int3)/3
       
@@ -15,7 +15,7 @@ print("mean =", funcMean(1, 2, 3))
 #2
 def funcEvenList(listParam):
     if not isinstance(listParam, list):
-         errorRaiseFunc(list)
+         errorRaiseFunc('list')
     return len([i for i in listParam if isinstance(i, int) and i % 2 == 0])
 
 print("count =", funcEvenList([1, 2, 4, 5, 6]))
@@ -37,9 +37,8 @@ import statistics
 def funcGrades(name, *args):
     if (len(args) < 1 or len([i for i in args if isinstance(i, int)]) != len(args)):
         print("No grades available for %s" % name)
-        return
-
-    print("%s​, your average grade is: ​%d​" % (name, statistics.mean(args)))
+    else:
+        print("%s​, your average grade is: ​%d​" % (name, statistics.mean(args)))
         
 funcGrades("Nune", 1, 2, 3)
 funcGrades("Ann", 55)              
@@ -69,7 +68,7 @@ def decorator(func):
 @decorator
 def add_values(list2):
     if (not isinstance(list2, list)):
-        errorRaiseFunc(list)
+        errorRaiseFunc('list')
 
     return list1 + [i for i in list2 if i not in list1]     
 
@@ -97,7 +96,7 @@ print(funcDec())
 #10
 def list_func(list1):
     if not isinstance(list1, list):
-        errorRaiseFunc(list)
+        errorRaiseFunc('list')
 
     return (i for i in list1)
 
@@ -105,16 +104,16 @@ def list_func(list1):
 def iter_num(n):
 
     if not isinstance(n, int):
-        errorRaiseFunc(int)
+        errorRaiseFunc('int')
 
     return (i for i in range(1, n + 1))
 
 #12
-def power(max):
+def power(maximum):
 
-    if not isinstance(max, int):
-        errorRaiseFunc(int)
-    return (i*2 for i in range(max + 1))        
+    if not isinstance(maximum, int):
+        errorRaiseFunc('int')
+    return (i*2 for i in range(maximum + 1))        
 
 gen1 = list_func([1, 2, 3, 4, 5, 6])
 print(next(gen1))
