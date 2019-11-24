@@ -11,10 +11,10 @@ moduleNotFoundFunc("moduleName")
 def div(x, y):
     try: 
         if not isinstance(x, int) or not isinstance(y, int):
-            raise ValueError
+            raise TypeError
         assert y != 0, "Can't divide"
         return x/y
-    except ValueError:
+    except TypeError:
         print("Arguments must be of integer type")
 
 print(div(1, 2))
